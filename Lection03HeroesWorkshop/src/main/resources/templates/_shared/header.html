@@ -10,7 +10,7 @@
             <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
                 <ul class="navbar-nav row">
                    
-                    <th:block th:if="${session.user == null || session.user.username == null}">
+                    <th:block th:if="${session.user == null}">
                     
                     		 <li class="nav-item col-md-4">
                        				 <a class="nav-link text-white active h5" href="/home">Home</a>
@@ -24,9 +24,9 @@
 	                    	</li>
                     </th:block>
                     
-                    <th:block th:unless="${session.user == null || session.user.username == null }"> 
+                    <th:block th:if="${session.user != null }"> 
                     
-                    <th:block th:unless="${session.user.heroName == null}">
+                    <th:block th:if="${session.user.heroName != null}">
                     
                     		
                     
@@ -37,7 +37,7 @@
 		                        <a class="nav-link text-white active h5" href="/items/create">Create Item</a>
 		                    </li>
 		                    <li class="nav-item mr-2">
-		                        <a class="nav-link text-white active h5" href="/heroes/details/SoulTaker">Hero</a>
+		                        <a class="nav-link text-white active h5" th:href="@{'/heroes/details/' + ${session.user.heroName}}">Hero</a>
 		                    </li>
 		                    <li class="nav-item mr-2">
 		                        <a class="nav-link text-white active h5" href="/users/profile">Profile</a>

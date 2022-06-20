@@ -30,7 +30,8 @@ import softuni.bg.heroes.data.models.base.BaseEntity;
 @Table(name="heroes")
 public class Hero extends BaseEntity{
 	
-	@Column
+	
+	@Column(unique = true)
 	private String name;
 	
 	@Column
